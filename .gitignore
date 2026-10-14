@@ -1,0 +1,23 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+
+# Local secrets must never be committed.
+.streamlit/secrets.toml
+
+# Runtime study data. Deployments should write these to a persistent disk.
+results/*.db
+results/*.sqlite
+results/*.sqlite3
+results/*.csv
+streamlit-demo.pid
+streamlit-demo.log
+
+# Administrative/IRB files are not needed by the public app deployment.
+IRB-Approval/
+IRB-Approval.zip
+create.pdf
+results/crossover-analysis/
+results/restricted-backups/
+restricted_exports/

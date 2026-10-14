@@ -1,0 +1,46 @@
+services:
+  - type: web
+    name: human-ai-learning-study
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python scripts/migrate_v5.py && python scripts/hosted_v5_smoke.py && python v5_gateway.py
+    envVars:
+      - key: V5_RECRUITMENT_OPEN
+        value: "false"
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: DEMO_MODE
+        value: "false"
+      - key: LLM_PROVIDER
+        value: openrouter
+      - key: OPENROUTER_MODEL
+        value: deepseek/deepseek-v4-flash-0731
+      - key: V4_TUTOR_MAX_TOKENS
+        value: "2048"
+      - key: OPENROUTER_APP_TITLE
+        value: AI Research Reading Study
+      - key: EXPERIMENT_VERSION
+        value: v4
+      - key: CONSENT_VERSION
+        value: sha256:e75ffd142849f9135dfa36078464f9450835d29db107b89dde8b0ce29d53d624
+      - key: PROMPT_VERSION
+        value: v4-crossover-2026-09-06-summary-mentor-1
+      - key: IRB_AMENDMENT_APPROVED
+        value: "true"
+      - key: RECRUITMENT_OPEN
+        value: "false"
+      - key: CROSSOVER_RECRUITMENT_OPEN
+        value: "false"
+      - key: V4_DESIGN_MODEL
+        value: within_subjects
+      - key: RECRUITMENT_TARGET_COMPLETIONS
+        value: "34"
+      - key: DATABASE_URL
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_HTTP_REFERER
+        sync: false
+      - key: ADMIN_ACCESS_TOKEN
+        sync: false
